@@ -85,9 +85,6 @@ export const Navbar = () => {
                     </ul>
                 </div>
                 <div className="sm:mx-2 bg-white/10 p-1 hover:scale-105 rounded-full flex justify-center items-center"><ThemeToggle /></div>
-
-
-
             </div>
         </div>
     );

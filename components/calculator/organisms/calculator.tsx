@@ -27,7 +27,7 @@ export const Calculator = () => {
         setExpression((prev) => prev.slice(0, -1));
 
     return (
-        <div className="card bg-base-200 shadow-xl p-4 w-full max-w-sm">
+        <div className="card bg-base-200/20 shadow-xl p-4 w-full max-w-sm">
             <Display value={expression} />
 
             <div className="flex gap-2 mt-3">

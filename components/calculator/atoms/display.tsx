@@ -13,7 +13,7 @@ export const Display = ({
     return (
         <div
             {...props}
-            className={`bg-base-300 p-4 rounded-xl text-right text-2xl 
+            className={`bg-base-100/30 p-4 rounded-xl text-right text-2xl 
       text-base-content break-all ${className}`}
         >
             {value || "0"}
