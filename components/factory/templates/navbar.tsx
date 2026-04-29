@@ -30,8 +30,8 @@ export const Navbar = () => {
         <div className="z-20 fixed top-0 h-16 navbar bg-base-100/10 backdrop-blur-sm border-b border-white/20">
             {/* Left - Brand */}
             <div className="flex-1">
-                <Link href="/calculator" className="text-xl font-bold text-primary">
-                    CoreDesk
+                <Link href="/calculator" className="text-xl font-semibold text-secondary">
+                    Core Desk
                 </Link>
             </div>
 

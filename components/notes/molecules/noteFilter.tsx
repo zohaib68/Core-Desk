@@ -1,6 +1,6 @@
 // components/molecules/NoteFilter.tsx
 
-import { Input } from "../atoms/input";
+import { SearchInput } from "../atoms/input";
 
 
 
@@ -11,7 +11,7 @@ type Props = {
 
 export const NoteFilter = ({ value, onChange }: Props) => {
     return (
-        <Input
+        <SearchInput
             placeholder="Search notes..."
             value={value}
             onChange={(e) => onChange(e.target.value)}

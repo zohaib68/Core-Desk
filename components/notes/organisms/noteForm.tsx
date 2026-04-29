@@ -4,7 +4,7 @@
 
 import { useState } from "react";
 import { NoteFormFields } from "../molecules/noteFormFields";
-import { Button } from "../atoms/button";
+import { Button } from "@/components/factory/atoms/button";
 
 
 type Props = {
@@ -32,7 +32,9 @@ export const NoteForm = ({ onAdd }: Props) => {
                 onDescriptionChange={setDescription}
             />
 
-            <Button label="Add Note" onClick={handleSubmit} />
+            <Button onClick={handleSubmit} >
+                Add Note
+            </Button>
         </div>
     );
 };

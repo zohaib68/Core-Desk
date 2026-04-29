@@ -6,10 +6,9 @@ import { useEffect, useState } from "react";
 import { NoteForm } from "@/components/notes/organisms/noteForm";
 import { NoteList } from "@/components/notes/organisms/notesList";
 import { NoteFilter } from "@/components/notes/molecules/noteFilter";
-import { Button } from "../atoms/button";
+import { Button } from "@/components/factory/atoms/button";
 import { Icon } from "@iconify/react";
 import { closeModal, Modal, openModal } from "@/components/factory/organisms/modal";
-import MeshGradient from "@/components/factory/organisms/meshGradient";
 import { MeshLayout } from "@/components/factory/templates/meshLayout";
 
 export type Note = {
@@ -18,16 +17,14 @@ export type Note = {
     description: string;
 };
 
-const testNotes: Note[] = new Array(20).fill({ title: "test", description: "test" })
-
 export const NotesPageLayout = () => {
-    const [notes, setNotes] = useState<Note[]>(testNotes);
+    const [notes, setNotes] = useState<Note[]>([]);
     const [filter, setFilter] = useState("");
 
-    // useEffect(() => {
-    //     const stored = localStorage.getItem("notes");
-    //     if (stored) setNotes(JSON.parse(stored));
-    // }, []);
+    useEffect(() => {
+        const stored = localStorage.getItem("notes");
+        if (stored) setNotes(JSON.parse(stored));
+    }, []);
 
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes));
@@ -46,6 +43,15 @@ export const NotesPageLayout = () => {
         n.title.toLowerCase().includes(filter.toLowerCase())
     );
 
+    const updateNote = (note: Note) => {
+        setNotes((prev) => prev.map((n) => (n.id === note.id ? note : n)));
+    };
+
+    const deleteNote = (id: string) => {
+        setNotes((prev) => prev.filter((n) => n.id !== id));
+    };
+
+
     return (
         <div className="relative">
 
@@ -53,10 +59,9 @@ export const NotesPageLayout = () => {
 
             {/* 🔥 CONTENT */}
             <div className="relative z-10 p-4 flex flex-col gap-6">
-                <div className="flex justify-between items-center">
-                    <h1 className="text-xl font-semibold">Notes</h1>
-                    <Button label="Add Note" onClick={() => openModal('add-note')}>
-                        <Icon icon={'gridicons:add-outline'} className="w-4 h-4" />
+                <div className="flex justify-end items-center">
+                    <Button className="rounded-full" startIcon={<Icon icon={'gridicons:add-outline'} className="w-4 h-4" />} onClick={() => openModal('add-note')}>
+                        Add Note
                     </Button>
                 </div>
 
@@ -69,7 +74,7 @@ export const NotesPageLayout = () => {
                 </div>
 
                 <div className="flex justify-center items-center">
-                    <NoteList notes={filtered} />
+                    <NoteList notes={filtered} onUpdate={updateNote} onDelete={deleteNote} />
                 </div>
             </div>
         </div>

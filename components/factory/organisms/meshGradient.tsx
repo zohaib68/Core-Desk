@@ -17,7 +17,7 @@ export default function MeshGradient({ className = "" }) {
             {blobs.map((b, i) => (
                 <div
                     key={i}
-                    className="absolute rounded-full opacity-100 blur animate-float-slow"
+                    className="absolute rounded-full opacity-100 blur-xl animate-float-slow"
                     style={{
                         width: "700px",
                         height: "700px",
@@ -26,24 +26,24 @@ export default function MeshGradient({ className = "" }) {
                         left: b.left,
                         right: b.right,
                         bottom: b.bottom,
-                        transform: "translate(-50%, -50%)",
+                        transform: "translate(-70%, -50%)",
                     }}
                 />
             ))}
 
             {/* EXTRA layer for depth */}
-            <div className="absolute inset-0 opacity-40 blur pointer-events-none">
+            <div className="absolute inset-0 opacity-40 blur-xl pointer-events-none">
                 <div
                     className="w-full h-full"
                     style={{
                         background:
-                            "radial-gradient(circle at 20% 30%, var(--color-primary), transparent 60%), radial-gradient(circle at 80% 70%, var(--color-secondary), transparent 70%)",
+                            "radial-gradient(circle at 20% 30%, var(--color-primary), transparent 60%), radial-gradient(circle at 80% 70%, var(--color-secondary), transparent 10%)",
                     }}
                 />
             </div>
 
             {/* SOFT OVERLAY (important for blending) */}
-            <div className="absolute inset-0 bg-base-100/50 backdrop-blur" />
+            <div className="absolute inset-0 bg-base-100/50 backdrop-blur-xl" />
         </div>
     );
 }
