@@ -17,14 +17,16 @@ export type Note = {
     description: string;
 };
 
+const testNotes: Note[] = new Array(20).fill({ title: "test", description: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest" })
+
 export const NotesPageLayout = () => {
-    const [notes, setNotes] = useState<Note[]>([]);
+    const [notes, setNotes] = useState<Note[]>(testNotes);
     const [filter, setFilter] = useState("");
 
-    useEffect(() => {
-        const stored = localStorage.getItem("notes");
-        if (stored) setNotes(JSON.parse(stored));
-    }, []);
+    // useEffect(() => {
+    //     const stored = localStorage.getItem("notes");
+    //     if (stored) setNotes(JSON.parse(stored));
+    // }, []);
 
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes));

@@ -20,14 +20,14 @@ export const NoteCard = ({ note, onUpdate, onDelete }: Props) => {
 
     console.log(onDelete)
     return (
-        <div className="h-40 text-base-content/70 rounded-md rounded-bl-4xl rounded-tr-4xl rounded-tl-xl  py-2 px-2 flex flex-col gap-2 bg-white/10!  border border-white/10 backdrop-blur-xl ">
+        <div className="h-40 text-base-content/70 rounded-md rounded-bl-4xl rounded-tr-4xl rounded-tl-xl  py-2 px-2 flex flex-col gap-2 bg-white/15!  border border-white/10  ">
             {/* Modals */}
             <ViewNoteModal note={note} />
             <EditNoteModal note={note} onSave={onUpdate} />
             <DeleteConfirmModal id={note.id} onDelete={onDelete} />
 
             <h2 className="font-semibold capitalize">{note.title}</h2>
-            <p className="break-all line-clamp-3">
+            <p className="break-all line-clamp-4 leading-tight text-sm">
                 {note.description}
             </p>
             <div className="grow flex items-end justify-end gap-2">
