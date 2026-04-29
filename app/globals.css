@@ -2,17 +2,102 @@
 
 @import "tailwindcss";
 
-/* daisyUI themes */
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, cupcake;
+  themes: false;
 }
 
-/* Smooth theme transition */
+/* =========================
+   LIGHT THEME
+========================= */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  color-scheme: light;
+
+  /* Brand */
+  --color-primary: #5b5bd6;
+  --color-primary-content: #ffffff;
+
+  --color-secondary: #0ea5a4;
+  --color-secondary-content: #ffffff;
+
+  --color-accent: #f97316;
+  --color-accent-content: #ffffff;
+
+  /* Base */
+  --color-base-100: #F8F8F8;
+  --color-base-200: #E8E8E8;
+  --color-base-300: #D3D3D3;
+  --color-base-content: #0f172a;
+
+  /* Neutral */
+  --color-neutral: #000000;
+  --color-neutral-content: #ffffff;
+
+  /* Feedback */
+  --color-info: #0284c7;
+  --color-info-content: #ffffff;
+
+  --color-success: #16a34a;
+  --color-success-content: #ffffff;
+
+  --color-warning: #f59e0b;
+  --color-warning-content: #78350f;
+
+  --color-error: #dc2626;
+  --color-error-content: #ffffff;
+}
+
+/* =========================
+   DARK THEME
+========================= */
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+  color-scheme: dark;
+
+  /* Brand */
+  --color-primary: #5b5bd6;
+  --color-primary-content: #ffffff;
+
+  --color-secondary: #2dd4bf;
+  --color-secondary-content: #042f2e;
+
+  --color-accent: #fbbf24;
+  --color-accent-content: #78350f;
+
+  /* Neutral */
+  --color-neutral: #ffffff;
+  --color-neutral-content: #000000;
+
+  /* Base (fixed for proper dark mode) */
+  --color-base-100: #0f172a;
+  --color-base-200: #1e293b;
+  --color-base-300: #334155;
+  --color-base-content: #e5e7eb;
+
+  /* Feedback */
+  --color-info: #38bdf8;
+  --color-info-content: #082f49;
+
+  --color-success: #4ade80;
+  --color-success-content: #022c22;
+
+  --color-warning: #facc15;
+  --color-warning-content: #422006;
+
+  --color-error: #f87171;
+  --color-error-content: #450a0a;
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Base layout */
 body {
   margin: 0;
   min-height: 100vh;
@@ -20,4 +105,7 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Apply theme tokens */
+  @apply bg-base-100 text-base-content;
 }

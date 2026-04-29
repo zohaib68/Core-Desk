@@ -23,11 +23,11 @@ export const Navbar = () => {
 
     const getNavClass = (isActive: boolean) =>
         isActive
-            ? "btn bg-primary text-primary-content hover:bg-primary hover:text-primary-content"
-            : " btn bg-base-100  text-base-200-content hover:bg-base-300 border-base-content/20";
+            ? "btn bg-base-100  text-base-200-content border border-white/20"
+            : "btn border border-white/20 text-base-content bg-base-100/20 ";
 
     return (
-        <div className="z-20 fixed top-0 h-16 navbar bg-base-300/5 backdrop-blur">
+        <div className="z-20 fixed top-0 h-16 navbar bg-base-100/10 backdrop-blur-sm border-b border-white/20">
             {/* Left - Brand */}
             <div className="flex-1">
                 <Link href="/calculator" className="text-xl font-bold text-primary">
@@ -84,7 +84,7 @@ export const Navbar = () => {
                         })}
                     </ul>
                 </div>
-                <div className="sm:mx-2 bg-accent/20 p-1 hover:scale-105 rounded-full flex justify-center items-center"><ThemeToggle /></div>
+                <div className="sm:mx-2 bg-white/10 p-1 hover:scale-105 rounded-full flex justify-center items-center"><ThemeToggle /></div>
 
 
 

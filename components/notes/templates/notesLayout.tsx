@@ -47,27 +47,31 @@ export const NotesPageLayout = () => {
     );
 
     return (
-        <div className="relative p-4 flex flex-col gap-6  min-h-full">
+        <div className="relative">
+
             <MeshLayout />
-            <div className="flex justify-between items-center">
 
-                <h1 className="text-xl font-semibold">Notes</h1>
-                <Button label="Add Note" onClick={() => openModal('add-note')} >
-                    <Icon icon={'gridicons:add-outline'} className="w-4 h-4" />
-                </Button>
+            {/* 🔥 CONTENT */}
+            <div className="relative z-10 p-4 flex flex-col gap-6">
+                <div className="flex justify-between items-center">
+                    <h1 className="text-xl font-semibold">Notes</h1>
+                    <Button label="Add Note" onClick={() => openModal('add-note')}>
+                        <Icon icon={'gridicons:add-outline'} className="w-4 h-4" />
+                    </Button>
+                </div>
+
+                <Modal modalId="add-note" title="Add Note">
+                    <NoteForm onAdd={addNote} />
+                </Modal>
+
+                <div className="flex justify-center items-center">
+                    <NoteFilter value={filter} onChange={setFilter} />
+                </div>
+
+                <div className="flex justify-center items-center">
+                    <NoteList notes={filtered} />
+                </div>
             </div>
-            <Modal modalId="add-note" title="Add Note">
-                <NoteForm onAdd={addNote} />
-            </Modal>
-
-
-            <div className="flex justify-center items-center">
-                <NoteFilter value={filter} onChange={setFilter} />
-            </div>
-            <div className="flex justify-center items-center">
-                <NoteList notes={filtered} />
-            </div>
-
         </div>
     );
 };

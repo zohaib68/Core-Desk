@@ -15,7 +15,7 @@ export const Button = ({
     return (
         <button
             {...props}
-            className={`btn btn-sm btn-primary ${className}`}
+            className={`btn btn-sm btn-primary text-primary-content! ${className}`}
         >
             {label}
             {children}

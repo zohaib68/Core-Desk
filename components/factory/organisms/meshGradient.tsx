@@ -1,36 +1,27 @@
-
-
-const colors = {
-    primary: "#5b5bd6",
-    secondary: "#0ea5a4",
-    accent: "#f97316",
-    neutral: "#1e293b",
-    info: "#0284c7",
-    success: "#16a34a",
-    warning: "#f59e0b",
-    error: "#dc2626",
-};
+"use client";
 
 const blobs = [
-    { color: colors.primary, top: "10%", left: "10%" },
-    { color: colors.success, top: "20%", right: "10%" },
-    { color: colors.error, bottom: "10%", left: "20%" },
-    { color: colors.warning, top: "50%", left: "50%" },
-    { color: colors.info, bottom: "20%", right: "20%" },
-    { color: colors.accent, top: "70%", left: "30%" },
-    { color: colors.neutral, bottom: "30%", right: "40%" },
-    { color: colors.secondary, top: "40%", right: "50%" },
+    { color: "var(--color-primary)", top: "10%", left: "10%" },
+    { color: "var(--color-secondary)", top: "20%", right: "5%" },
+    { color: "var(--color-accent)", bottom: "10%", left: "15%" },
+    { color: "var(--color-success)", top: "60%", left: "60%" },
+    { color: "var(--color-warning)", bottom: "20%", right: "20%" },
+    { color: "var(--color-info)", top: "40%", left: "80%" },
 ];
 
 export default function MeshGradient({ className = "" }) {
     return (
-        <div className={`relative w-full h-full overflow-hidden ${className}`}>
+        <div className={`fixed inset-0 overflow-hidden ${className}`}>
+
+            {/* BIG soft blobs */}
             {blobs.map((b, i) => (
                 <div
                     key={i}
-                    className="absolute w-72 h-72 rounded-full blur-3xl opacity-60 mix-blend-screen"
+                    className="absolute rounded-full opacity-100 blur animate-float-slow"
                     style={{
-                        background: `radial-gradient(circle at center, ${b.color}, transparent 100%)`,
+                        width: "700px",
+                        height: "700px",
+                        background: `radial-gradient(circle at center, ${b.color} 0%, transparent 100%)`,
                         top: b.top,
                         left: b.left,
                         right: b.right,
@@ -40,8 +31,19 @@ export default function MeshGradient({ className = "" }) {
                 />
             ))}
 
-            {/* optional soft overlay */}
-            <div className="absolute inset-0 bg-black/5" />
+            {/* EXTRA layer for depth */}
+            <div className="absolute inset-0 opacity-40 blur pointer-events-none">
+                <div
+                    className="w-full h-full"
+                    style={{
+                        background:
+                            "radial-gradient(circle at 20% 30%, var(--color-primary), transparent 60%), radial-gradient(circle at 80% 70%, var(--color-secondary), transparent 70%)",
+                    }}
+                />
+            </div>
+
+            {/* SOFT OVERLAY (important for blending) */}
+            <div className="absolute inset-0 bg-base-100/50 backdrop-blur" />
         </div>
     );
 }
