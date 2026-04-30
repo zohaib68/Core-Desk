@@ -8,7 +8,7 @@ export const CTASection = () => {
                 Start being productive today
             </h2>
 
-            <Button href="/tasks" className="rounded-full">
+            <Button href="/tasks" color="secondary" className="rounded-full">
                 Get Started Free
             </Button>
 

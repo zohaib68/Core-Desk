@@ -14,12 +14,12 @@ export const HeroSection = (): JSX.Element => {
                 Tasks, notes, and calculator — all in one workspace.
             </p>
 
-            <div className="mt-6 flex gap-4">
-                <Button href="/tasks" className="rounded-full" >
+            <div className="mt-6 flex gap-2">
+                <Button color="secondary" href="/tasks" className="rounded-full" >
                     Get Started
                 </Button>
 
-                <Button className="rounded-full shadow-secondary!" color="secondary" href="/notes" variant="outlined">
+                <Button color="secondary" className="rounded-full" href="/notes" variant="filled">
                     Explore Notes
                 </Button>
             </div>
