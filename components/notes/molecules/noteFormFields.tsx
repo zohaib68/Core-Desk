@@ -1,7 +1,7 @@
 // components/molecules/NoteFormFields.tsx
 
-import { Input } from "../atoms/input";
-import { TextArea } from "../atoms/textArea";
+import { Input } from "@/components/factory/atoms/input";
+import { TextArea } from "@/components/factory/atoms/textArea";
 
 
 

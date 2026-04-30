@@ -6,8 +6,8 @@ import { useState } from "react";
 import { Note } from "../templates/notesLayout";
 import { Modal, closeModal } from "@/components/factory/organisms/modal";
 import { Button } from "@/components/factory/atoms/button";
-import { Input } from "../atoms/input";
-import { TextArea } from "../atoms/textArea";
+import { Input } from "@/components/factory/atoms/input";
+import { TextArea } from "@/components/factory/atoms/textArea";
 
 type Props = {
     note: Note;

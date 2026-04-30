@@ -78,16 +78,16 @@
 
   /* Feedback */
   --color-info: #38bdf8;
-  --color-info-content: #082f49;
+  --color-info-content: #ffffff;
 
   --color-success: #4ade80;
-  --color-success-content: #022c22;
+  --color-success-content: #ffffff;
 
   --color-warning: #facc15;
   --color-warning-content: #422006;
 
   --color-error: #f87171;
-  --color-error-content: #450a0a;
+  --color-error-content: #ffffff;
 }
 
 /* =========================

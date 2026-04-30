@@ -17,16 +17,14 @@ export type Note = {
     description: string;
 };
 
-const testNotes: Note[] = new Array(20).fill({ title: "test", description: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest" })
-
 export const NotesPageLayout = () => {
-    const [notes, setNotes] = useState<Note[]>(testNotes);
+    const [notes, setNotes] = useState<Note[]>([]);
     const [filter, setFilter] = useState("");
 
-    // useEffect(() => {
-    //     const stored = localStorage.getItem("notes");
-    //     if (stored) setNotes(JSON.parse(stored));
-    // }, []);
+    useEffect(() => {
+        const stored = localStorage.getItem("notes");
+        if (stored) setNotes(JSON.parse(stored));
+    }, []);
 
     useEffect(() => {
         localStorage.setItem("notes", JSON.stringify(notes));
@@ -62,7 +60,7 @@ export const NotesPageLayout = () => {
             {/* 🔥 CONTENT */}
             <div className="relative z-10 p-4 flex flex-col gap-6">
                 <div className="flex justify-end items-center">
-                    <Button className="rounded-full" startIcon={<Icon icon={'gridicons:add-outline'} className="w-4 h-4" />} onClick={() => openModal('add-note')}>
+                    <Button className="rounded-full" endIcon={<Icon icon={'gridicons:add-outline'} className="w-4 h-4" />} onClick={() => openModal('add-note')}>
                         Add Note
                     </Button>
                 </div>

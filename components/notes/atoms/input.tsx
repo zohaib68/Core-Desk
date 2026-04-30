@@ -4,16 +4,6 @@ import { InputHTMLAttributes } from "react";
 
 type Props = {} & InputHTMLAttributes<HTMLInputElement>;
 
-export const Input = ({ className = "", ...props }: Props) => {
-    return (
-        <input
-            {...props}
-            className={`input input-bordered w-full ${className}`}
-        />
-    );
-};
-
-
 
 export const SearchInput = ({ className = "", ...props }: Props) => {
     return (
