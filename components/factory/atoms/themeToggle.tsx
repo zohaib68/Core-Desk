@@ -33,7 +33,7 @@ export const ThemeToggle = () => {
 
             {/* sun icon (light mode) */}
             <svg
-                className="swap-on w-6 h-6 fill-current text-primary"
+                className="swap-on w-6 h-6 fill-current text-secondary"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
             >
@@ -42,7 +42,7 @@ export const ThemeToggle = () => {
 
             {/* moon icon (dark mode) */}
             <svg
-                className="swap-off w-6 h-6 fill-current text-primary"
+                className="swap-off w-6 h-6 fill-current text-secondary"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
             >

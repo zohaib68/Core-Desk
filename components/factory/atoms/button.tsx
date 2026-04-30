@@ -21,6 +21,7 @@ type BaseColor = "base-100" | "base-200" | "base-300";
 type Color = DaisyColor | BaseColor;
 
 type Props = {
+    href?: string
     children: ReactNode;
     variant?: Variant;
     size?: Size;
@@ -121,6 +122,7 @@ export const Button = ({
     fullWidth = false,
     loading = false,
     disabled,
+    href,
     ...props
 }: Props) => {
     const sizeStyles = {
@@ -136,23 +138,32 @@ export const Button = ({
         colorStylesMap[color as keyof typeof colorStylesMap]?.[variant] ||
         colorStylesMap.primary.filled;
 
+    const classes = clsx(
+        "btn",
+        sizeStyles,
+        variantStyles,
+        {
+            "w-full": fullWidth,
+            "loading": loading,
+            "opacity-50 cursor-not-allowed": disabled,
+        },
+        className
+    );
+
+    if (href) {
+        return (
+            <a href={href} className={classes}>
+                {children}
+            </a>
+        );
+    }
 
 
     return (
         <button
             {...props}
             disabled={disabled || loading}
-            className={clsx(
-                "btn",
-                sizeStyles,
-                variantStyles,
-                {
-                    "w-full": fullWidth,
-                    "loading": loading,
-                    "opacity-50 cursor-not-allowed": disabled,
-                },
-                className
-            )}
+            className={classes}
         >
             {!loading && startIcon && <span>{startIcon}</span>}
             {children ?? null}
