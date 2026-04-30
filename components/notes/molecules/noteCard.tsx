@@ -30,16 +30,20 @@ export const NoteCard = ({ note, onUpdate, onDelete }: Props) => {
             <p className="break-all line-clamp-6 leading-tight text-sm">
                 {note.description}
             </p>
-            <div className="grow flex items-end justify-end gap-2">
-                <Button onClick={() => openModal(`view-${note.id}`)} size='xs' color="secondary" className="rounded-full p-1" endIcon={<Icon className="w-4 h-4" icon={'lets-icons:view'} />} variant="outlined"  >
-                    <></>
-                </Button>
-                <Button onClick={() => openModal(`edit-${note.id}`)} size='xs' color="secondary" className="rounded-full p-1" endIcon={<Icon className="w-4 h-4" icon={'boxicons:edit-filled'} />} variant="outlined"  >
-                    <></>
-                </Button>
-                <Button onClick={() => openModal(`delete-${note.id}`)} size='xs' color="error" className="rounded-full p-1" endIcon={<Icon className="w-4 h-4" icon={'material-symbols:delete-outline'} />} variant="outlined"  >
-                    <></>
-                </Button>
+            <div className="grow  flex flex-col gap-1 justify-end items-end text-xs text-base-content/50">
+                {note.createdAt && <span>{new Date(note.createdAt).toLocaleString()}</span>}
+                <div className="flex items-end justify-end gap-2">
+                    <Button onClick={() => openModal(`view-${note.id}`)} size='xs' color="secondary" className="rounded-full p-1" endIcon={<Icon className="w-4 h-4" icon={'lets-icons:view'} />} variant="outlined"  >
+                        <></>
+                    </Button>
+                    <Button onClick={() => openModal(`edit-${note.id}`)} size='xs' color="secondary" className="rounded-full p-1" endIcon={<Icon className="w-4 h-4" icon={'boxicons:edit-filled'} />} variant="outlined"  >
+                        <></>
+                    </Button>
+                    <Button onClick={() => openModal(`delete-${note.id}`)} size='xs' color="error" className="rounded-full p-1" endIcon={<Icon className="w-4 h-4" icon={'material-symbols:delete-outline'} />} variant="outlined"  >
+                        <></>
+                    </Button>
+                </div>
+
             </div>
         </div>
     );

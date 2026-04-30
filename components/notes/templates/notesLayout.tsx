@@ -15,6 +15,7 @@ export type Note = {
     id: string;
     title: string;
     description: string;
+    createdAt: string
 };
 
 export const NotesPageLayout = () => {
@@ -30,9 +31,9 @@ export const NotesPageLayout = () => {
         localStorage.setItem("notes", JSON.stringify(notes));
     }, [notes]);
 
-    const addNote = (note: Omit<Note, "id">) => {
+    const addNote = (note: Omit<Note, "id" | "createdAt">) => {
         setNotes((prev) => [
-            { ...note, id: crypto.randomUUID() },
+            { ...note, id: crypto.randomUUID(), createdAt: new Date().toISOString() },
             ...prev,
         ]);
 
