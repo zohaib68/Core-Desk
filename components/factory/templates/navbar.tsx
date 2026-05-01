@@ -23,14 +23,14 @@ export const Navbar = () => {
 
     const getNavClass = (isActive: boolean) =>
         isActive
-            ? "btn bg-secondary/70 text-secondary-content/80 border border-secondary/20"
-            : "btn border border-secondary/20 text-info hover:border-info hover:bg-info hover:text-info-content bg-info/10 ";
+            ? "btn bg-secondary text-secondary-content border border-secondary/20"
+            : "btn border border-secondary/20 text-base-content/70 hover:border-secondary hover:bg-secondary hover:text-secondary-content bg-secondary/10 ";
 
     return (
         <div className="z-20 fixed top-0 h-16 navbar bg-secondary/15 backdrop-blur-sm border-b border-secondary/20">
             {/* Left - Brand */}
             <div className="flex-1 justify-end">
-                <Link href="/" className="bg-info/30 shadow-info/30 shadow-sm w-fit h-fit px-4 py-1 rounded-full font-semibold text-info-content font-sans flex items-center gap-2">
+                <Link href="/" className="bg-secondary/50 shadow-secondary/30 shadow-sm w-fit h-fit px-4 py-1 rounded-full font-semibold text-secondary-content font-sans flex items-center gap-2">
                     <span className="text-lg">Core Desk</span>
                     <Icon icon="streamline-ultimate:corporate-social-media" width="16" height="16" />
                 </Link>
