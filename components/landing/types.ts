@@ -15,6 +15,9 @@ export interface FeatureCardProps {
     title: string;
     description: string;
     icon: string
+    className?: string
+    iconContainerClassName?: string
+    dividerClassName?: string
 }
 
 /* SECTION WRAPPER (optional but useful) */
