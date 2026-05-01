@@ -5,7 +5,7 @@ export const FeaturesSection = () => {
         <section className="px-6 py-20 max-w-6xl mx-auto">
 
             <h2 className="text-3xl font-semibold text-center mb-12">
-                Everything you need
+                <span className="text-base-content">Everything</span> <span className="text-secondary">you</span> <span className="text-secondary">need !</span>
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

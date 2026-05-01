@@ -11,7 +11,7 @@ export const HeroSection = (): JSX.Element => {
                     <span className="text-secondary">clarity</span>
                 </h1>
 
-                <p className="mt-4 text-base-content/70 max-w-xl">
+                <p className="mt-4 text-base-content/90 max-w-xl">
                     Tasks, notes, and calculator — all in one workspace.
                 </p>
 
