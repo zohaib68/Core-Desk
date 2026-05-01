@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Core Desk | Organize Your Life With Clarity",
   description: "Task Management, Notes, and Calculator — all in one workspace.",
+  icons: {
+    icon: "/favicon", // assuming favicon.ico is in the public folder
+  },
 };
 
 export default function RootLayout({
