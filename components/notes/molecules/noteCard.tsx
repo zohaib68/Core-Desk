@@ -20,7 +20,7 @@ export const NoteCard = ({ note, onUpdate, onDelete }: Props) => {
 
 
     return (
-        <div className="h-56 text-base-content/70 rounded-0 rounded-bl-4xl rounded-tr-4xl rounded-tl-lg  py-2 px-2 flex flex-col gap-2 bg-white/15!  border border-white/10  ">
+        <div className="h-56 min-w-60 text-base-content/70 rounded-0 rounded-bl-4xl rounded-tr-4xl rounded-tl-lg  py-2 px-2 flex flex-col gap-2 bg-white/15!  border border-white/10  ">
             {/* Modals */}
             <ViewNoteModal note={note} />
             <EditNoteModal note={note} onSave={onUpdate} />
